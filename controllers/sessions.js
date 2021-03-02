@@ -21,7 +21,7 @@ ROUTER.post('/', (req, res) => {
     } else {
       if (bcrypt.compareSync(req.body.password, foundUser.password)) {
         req.session.currentUser = foundUser;
-        res.redirect('/');
+        res.redirect('/projects');
       } else {
         res.send('<a href="/sessions/signin">Incorrect username or password.</a>');
       }

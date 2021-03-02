@@ -37,6 +37,7 @@ db.on('open' , ()=>{});
 //___________________
 const sessionsController = require('./controllers/sessions.js');
 const usersController = require('./controllers/users.js');
+const projectsController = require('./controllers/projects.js');
 
 //___________________
 //Middleware
@@ -66,14 +67,15 @@ app.use(logRequest);
 // Register our controllers on their routes
 app.use('/sessions', sessionsController);
 app.use('/users', usersController);
+app.use('/projects', projectsController);
 
 //___________________
 // Routes
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/' , (req, res) => {
+//   res.send('Hello World!');
+// });
 
 //___________________
 //Listener

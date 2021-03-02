@@ -1,0 +1,18 @@
+
+body {
+  background-color: #F4F5F6;
+}
+
+.sing-in-container{
+display: flex;
+flex-direction: row;
+}
+.sing-in-left-side {
+background-color: #fe5454;
+width: 35%;
+}     
+
+.sing-in-right-side {
+background-color: aqua;
+width: 40%;
+}
