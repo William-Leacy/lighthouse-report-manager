@@ -3,6 +3,9 @@
 //___________________
 const express = require('express');
 const methodOverride  = require('method-override');
+const session = require('express-session');
+const {logRequest} = require('./services/middleware.js');
+require('dotenv').config();
 const mongoose = require ('mongoose');
 const app = express ();
 const db = mongoose.connection;
@@ -30,6 +33,12 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 db.on('open' , ()=>{});
 
 //___________________
+//controller logic
+//___________________
+const sessionsController = require('./controllers/sessions.js');
+const usersController = require('./controllers/users.js');
+
+//___________________
 //Middleware
 //___________________
 
@@ -43,6 +52,20 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 
+app.use(
+  session(
+    {
+      secret: process.env.SECRET,
+      resave: false,
+      saveUninitialized: false,
+    }
+  )
+);
+app.use(logRequest);
+
+// Register our controllers on their routes
+app.use('/sessions', sessionsController);
+app.use('/users', usersController);
 
 //___________________
 // Routes
