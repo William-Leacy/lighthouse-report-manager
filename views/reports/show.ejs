@@ -9,16 +9,37 @@
 <body>
   <h1>Show report </h1> <%=projects.name %> 
 
-
-        <% for(let i = 0; i < projects.websites.length; i++){ %>
-          <li>
-            urls
-            <a href="/projects/<%=projects.id %>/websites/">
-              <%=projects.websites[i].list_of_urls[i].reports[i].report_name %> %>
-            </a>
-        </li>
-        <% } %>
-      </a>
+  <table class="table">
+    <caption>Report</caption>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Report name</th>
+        <th scope="col">Date Created</th>
+        <th scope="col">Lighthouse Json</th>
+        <th scope="col">Report link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td> <%=projects.websites[i].list_of_urls[i].reports[i].report_name %></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td> <%=projects.websites[i].list_of_urls[i].reports[i].created_date %></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td> <%=projects.websites[i].list_of_urls[i].reports[i].report_name %></td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td> <%=projects.websites[i].list_of_urls[i].reports[i].lighthouse_json_data %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%- projects.websites[i].list_of_urls[i].reports[i].lighthouse_html_string %>
   <nav>
       <a href="/projects">Back to project Index</a>
   </nav>
