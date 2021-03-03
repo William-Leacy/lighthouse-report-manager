@@ -109,7 +109,7 @@ ROUTER.get('/seed', (req, res) => {
 ROUTER.get('/', (req, res) => {
   Projects.find({}, (error, allProjects) => {
     console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
-    console.log(req.params.id);
+    console.log("Getting Projects");
     console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
     res.render('projects/index.ejs', {
       projects: allProjects,
@@ -135,7 +135,25 @@ ROUTER.get('/:id', (req, res) => {
   })
 })
 
-// Delete a project
+// GET edit a project
+ROUTER.get('/:id/edit', (req, res)=>{
+  Projects.findById(req.params.id, (err, foundProject)=>{ 
+      res.render('projects/edit.ejs', { 
+        projects: foundProject, 
+        method: 'PUT'
+      })
+  })
+})
+
+// update
+ROUTER.put('/:id', (req, res)=>{
+
+  Projects.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel)=> {
+    res.redirect('/projects');
+  })
+})
+
+//Delete a project
 ROUTER.delete('/:id', (req, res) => {
   Projects.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (err, data)=>{
     res.redirect('/projects')
