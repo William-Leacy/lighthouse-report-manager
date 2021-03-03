@@ -135,4 +135,11 @@ ROUTER.get('/:id', (req, res) => {
   })
 })
 
+// Delete a project
+ROUTER.delete('/:id', (req, res) => {
+  Projects.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (err, data)=>{
+    res.redirect('/projects')
+  })
+});
+
 module.exports = ROUTER;
