@@ -5,15 +5,19 @@
         <title></title>
     </head>
     <body>
-        <h1>Projects</h1>  
+        <h1>Index Projects</h1>  
         <ul>
           <% for(let i = 0; i < projects.length; i++){ %>
             <li>
-              The
+              project name
               <a href="/projects/<%=projects[i].id %>">
                   <%=projects[i].name; %>
               </a>
           </li>
+          <form action="/projects/<%= projects[i].id %>?_method=DELETE" method="POST">
+            <input type="submit" value="DELETE"/>
+        </form>
+        <a href="/projects/<%=projects[i].id %>/edit">Edit</a>
           <% } %>
       </ul>
     </body>

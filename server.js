@@ -38,7 +38,9 @@ db.on('open' , ()=>{});
 const sessionsController = require('./controllers/sessions.js');
 const usersController = require('./controllers/users.js');
 const projectsController = require('./controllers/projects.js');
-
+const websitesController = require('./controllers/websites.js');
+const websiteUrlsController = require('./controllers/websiteUrls.js');
+const websiteReportsController = require('./controllers/reports.js');
 //___________________
 //Middleware
 //___________________
@@ -68,6 +70,10 @@ app.use(logRequest);
 app.use('/sessions', sessionsController);
 app.use('/users', usersController);
 app.use('/projects', projectsController);
+app.use('/websites', websitesController);
+app.use('/urls', websiteUrlsController);
+app.use('/report', websiteReportsController);
+
 
 //___________________
 // Routes
