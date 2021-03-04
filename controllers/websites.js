@@ -72,25 +72,36 @@ ROUTER.get('/:id', (req, res) => {
 ROUTER.post('/', (req, res) => {
 
   console.log(req.body);
-  let website = new Website(req.body);
-  console.log(website);
-  Projects.findByIdAndUpdate(req.params.projectId, {
-      '$push': {
-        websites: website
-      }
-    }, {
-      'new': true,
-      'runValidators': true
-    },
-    function (err, result) {
+  // Website.create(req.body, (error, createdWebsite) => {
+  //   res.send(createdWebsite);
+  // })
+  // let website = new Website({website_name: "test"});
+  // console.log(website);
+  // Projects.findById(req.params.projectId, {
+  //     '$push': {
+  //       websites: website
+  //     }
+  //   }, {
+  //     'new': true,
+  //     'runValidators': true
+  //   },
+  //   function (err, result) {
 
 
-      if (err) {
-        res.send(err)
-      } else {
-        res.send(result)
-      }
-    });
+  //     if (err) {
+  //       res.send(err)
+  //     } else {
+  //       res.send(result)
+  //     }
+  //   });
+  Projects.findById(req.params.projectId).then((project) => {
+  Website.create(req.body).then(website => {
+    project.websites.push(website)
+    project.save()
+    res.send(project)
+  })
+  })
+
 
 
 })

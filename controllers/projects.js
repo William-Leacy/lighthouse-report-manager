@@ -105,7 +105,8 @@ ROUTER.get('/seed', (req, res) => {
     res.redirect('/projects');
   })
 });
-// GET Projects Index
+
+//GET Projects Index
 ROUTER.get('/', (req, res) => {
 
   Projects.find({}, (error, allProjects) => {
@@ -115,10 +116,12 @@ ROUTER.get('/', (req, res) => {
     console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
     res.render('projects/index.ejs', {
       projects: allProjects,
-
     })
   })
 })
+
+
+
 // GET new project form
 ROUTER.get('/new', (req, res) => {
   res.render('projects/new.ejs');

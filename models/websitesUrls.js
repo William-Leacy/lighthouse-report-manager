@@ -5,7 +5,7 @@ const urlsSchema = new mongoose.Schema({
 
   url_name: {type: String},
   created_date: {type: Date,default: Date.now},
-  reports: [{ type: Schema.Types.ObjectId, ref: 'reportsSchema' }]
+  reports: [{ type: Schema.Types.ObjectId, ref: 'Reports' }]
 });
 
 const WebsitesUrls = mongoose.model('WebsitesUrls', urlsSchema);

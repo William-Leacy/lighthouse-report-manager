@@ -7,10 +7,9 @@ const reportsSchema = new mongoose.Schema({
   created_date: {type: Date, default: Date.now },
   lighthouse_json_data: {},
   lighthouse_html_string: {type: String},
-  memebers: [],
   creator: {type: String},
   created_date: {type: Date, default: Date.now},
-  comments: [{ type: Schema.Types.ObjectId, ref: 'commentsSchema' }]
+  comments: [{ type: Schema.Types.ObjectId, ref: 'Comments' }]
 
 });
 
