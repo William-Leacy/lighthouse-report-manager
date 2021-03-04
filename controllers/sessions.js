@@ -17,7 +17,7 @@ ROUTER.post('/', (req, res) => {
       console.log(err);
       res.send('Database failure');
     } else if (!foundUser) {
-      res.send('<a href="/users/new">Username not found</a>');
+      res.send('<h2>Username not found</h2><a href="/users/signup">Return to Sign Up page</a>');
     } else {
       if (bcrypt.compareSync(req.body.password, foundUser.password)) {
         req.session.currentUser = foundUser;
