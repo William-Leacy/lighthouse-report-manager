@@ -1,6 +1,8 @@
 
 body {
   background-color: #F4F5F6;
+  display: flex;
+  flex-direction: row;
 }
 
 .sing-in-container{
@@ -15,4 +17,59 @@ width: 35%;
 .sing-in-right-side {
 background-color: aqua;
 width: 40%;
+}
+
+.sidenav {
+  height: 100vh;
+  width: 160px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: large;
+  color: #ffffff;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.main-content-container{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 2%;
+}
+
+/* ================ */
+/*   INDEX Project Page     */
+/* ================ */
+.project-name-list-item-index-show {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.update-project-options-container-index-show {
+flex-direction: row;
+display: flex;
+justify-content: space-evenly;
 }

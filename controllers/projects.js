@@ -113,6 +113,7 @@ ROUTER.get('/', (req, res) => {
     console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
     res.render('projects/index.ejs', {
       projects: allProjects,
+
     })
   })
 })
