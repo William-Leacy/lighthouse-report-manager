@@ -3,17 +3,10 @@ const Schema = mongoose.Schema;
 
 const reportsSchema = new mongoose.Schema({
  
-  report_name: {
-    type: String,
-  },
-  created_date: {
-    type: Date,
-    default: Date.now
-  },
+  report_name: {type: String},
+  created_date: {type: Date, default: Date.now },
   lighthouse_json_data: {},
-  lighthouse_html_string: {
-    type: String,
-  },
+  lighthouse_html_string: {type: String},
   memebers: [],
   creator: {type: String},
   created_date: {type: Date, default: Date.now},

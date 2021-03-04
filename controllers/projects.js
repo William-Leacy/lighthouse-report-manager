@@ -107,7 +107,9 @@ ROUTER.get('/seed', (req, res) => {
 });
 // GET Projects Index
 ROUTER.get('/', (req, res) => {
+
   Projects.find({}, (error, allProjects) => {
+    console.log(allProjects);
     console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
     console.log("Getting Projects");
     console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
@@ -129,9 +131,14 @@ ROUTER.post('/', (req, res) => {
 })
 // GET show a project
 ROUTER.get('/:id', (req, res) => {
+  console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
+  console.log("Showing Projects");
+  console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
   Projects.findById(req.params.id, (err, foundProject) => {
+    console.log(foundProject);
+    console.log(foundProject.websites);
     res.render('projects/show.ejs', {
-      projects: foundProject,
+      project: foundProject,
     })
   })
 })
