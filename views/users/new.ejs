@@ -2,9 +2,12 @@
 <html lang="en">
   <%- include ('../partials/head.ejs') %>
 <body>
-  <div class="container">
-    <h1>Sign Up</h1>
-    <form action="/users" method="POST">
+  <div class="sing-in-container">
+    <div class="sing-in-left-side">
+    <h1>Lighthouse Reports Manager</h1>
+
+    <form class="sign-in-form-container" action="/users" method="POST">
+      <h1>Sign Up</h1>
       <label for="name">Username *</label>
       <input type="text" name="username" required/>
       <label for="color">Password *</label>
@@ -12,6 +15,10 @@
       <br>
       <input type="submit" value="Create account">
     <form>
-  </div>
+    </div>
+    <div class="sing-in-right-side">
+      <img src="/img/undraw_visual_data_b1wx.svg"></img>
+    </div>
+
 </body>
 </html>

@@ -2,7 +2,9 @@
 <html lang="en">
   <%- include ('../partials/head.ejs') %>
 <body>
-  <h1> show urls</h1> <%=projects.name %> 
+  <%- include ('../partials/navbar.ejs') %>
+  <div class ="main-content-container" >
+  <h1> Reports</h1> <%=projects.name %> 
         <% for(let i = 0; i < projects.websites.length; i++){ %>
           <li>
             reports
@@ -15,5 +17,7 @@
   <nav>
       <a href="/projects">Back to project Index</a>
   </nav>
+  
+</div>
 </body>
 </html>

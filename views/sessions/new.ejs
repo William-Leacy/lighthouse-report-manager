@@ -3,15 +3,18 @@
   <%- include ('../partials/head.ejs') %>
 <body>
   <div class="sing-in-container">
-    <div  class="sing-in-left-side">
-    <h1>Log In</h1>
-    <form action="/sessions" method="POST">
+    <div class="sing-in-left-side">
+    <h1>Lighthouse Reports Manager</h1>
+    <form class="sign-in-form-container"action="/sessions" method="POST">
       <label for="name">Username *</label>
       <input type="text" name="username" required/>
       <label for="color">Password *</label>
       <input type="password" name="password" />
       <br>
-      <input type="submit" value="Sign In">
+      <div class="user-login-buttons-container">
+        <a class="sign-up-button" href="/users/signup">Sign Up</a>
+        <button class="sign-in-button"type="submit" value="Sign In"> Sign In </button>
+      </div>
     <form>
     </div>
     <div class="sing-in-right-side">

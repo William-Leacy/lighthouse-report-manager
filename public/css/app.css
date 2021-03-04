@@ -10,15 +10,19 @@ display: flex;
 flex-direction: row;
 }
 .sing-in-left-side {
-background-color: #fe5454;
+background-color: #ffffff;
 width: 35%;
+display: flex;
+flex-direction: column;
+
+align-items: center;
 }     
 
 .sing-in-right-side {
 background-color: aqua;
 width: 40%;
 }
-
+/* w3schools refence needed */
 .sidenav {
   height: 100vh;
   width: 160px;
@@ -73,3 +77,42 @@ flex-direction: row;
 display: flex;
 justify-content: space-evenly;
 }
+
+
+/* ================ */
+/*   Sing up Page     */
+/* ================ */
+.sing-in-container{
+  margin: 3%;
+}
+.sign-in-form-container {
+  display: flex;
+  flex-direction: column;
+  margin: 17%;
+}
+
+.user-login-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* buttons */
+
+.sign-in-button {
+	background-color:#fe5454;
+	border-radius:10px;
+	color:#ffffff;
+	font-family:Arial;
+	padding:20px 60px;
+}
+
+.sign-up-button {
+	background-color:#ffffff;
+	border-radius:10px;
+	border:2px solid #fe5454;
+	color:#fe5454;
+	font-family:Arial;
+	font-weight:bold;
+	padding:20px 60px;
+}
+
