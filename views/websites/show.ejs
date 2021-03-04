@@ -9,25 +9,26 @@
 <body>
   <h1>show website</h1> <%=projects.name %> 
 
-  <h1>Website Name</h1> <%=projects.websites.website_name %> 
+  <h2>Website Name: <%=projects.websites[websiteIndex].website_name %></h2>  
 
-  <form action="/projects/<%=projects.id %>/websites/<%=projects.websites[0].id%>?_method=DELETE" method="POST">
+  <form action="/projects/<%=projects.id %>/websites/<%=projects.websites[websiteIndex].id%>?_method=DELETE" method="POST">
     <input type="submit" value="DELETE"/>
 </form>
-<a href="/projects/<%=projects.id %>/websites/<%=projects.websites[0].id%>/edit">Edit</a>
+<a href="/projects/<%=projects.id %>/websites/<%=projects.websites[websiteIndex].id%>/edit">Edit</a>
  
 </a>
 
         <% for(let i = 0; i < projects.websites.length; i++){ %>
           <li>
             urls
-            <a href="/projects/<%=projects.id %>/websites/<%=projects.websites[i].id%>/urls/<%= projects.websites[i].list_of_urls[i].id%>">
-              <%=projects.websites[i].list_of_urls[i].url_name %>
+            <a href="/projects/<%=projects.id %>/websites/<%=projects.websites[websiteIndex].id%>/urls/<%= projects.websites[websiteIndex].list_of_urls[i].id%>">
+              <%=projects.websites[websiteIndex].list_of_urls[i].url_name %>
             </a>
         </li>
 
         <% } %>
       </a>
+      <a href="/projects/new">Add a url</a>
   <nav>
       <a href="/projects">Back to project Index</a>
   </nav>
