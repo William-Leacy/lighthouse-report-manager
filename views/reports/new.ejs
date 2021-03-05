@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include ('../partials/head.ejs') %>
+<body>
+  <%- include ('../partials/navbar.ejs') %>
+  <div class ="main-content-container" >
+  <h1>New Report</h1>
+  <%- include ('../partials/reportForm.ejs', {method: 'POST'}) %>
+</div>
+</body>
+</html>
