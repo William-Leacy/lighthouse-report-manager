@@ -2,7 +2,7 @@
   "name": "lighthouse-report-manager",
   "version": "1.0.0",
   "engines": {
-    "node": "10.11.0"
+    "node": "14.x"
   },
   "description": "",
   "main": "server.js",

@@ -8,6 +8,17 @@ Utilizes Lighthouse npm module to generate the report.
 You can access the application here:
 https://damp-temple-76255.herokuapp.com/projects
 
+## Future Work
+The project needs middleware for Delete routes so that when an object is deleted from its model, it is also deleted from the models that reference's it</br>
+
+The project needs error handing on input files, especially when entering URL for that is used to generate a report.</br>
+
+I would like to reference the user's model in projects so that a user can add other members to a project. With the current version, all users can see all projects.</br>
+
+My original plan is to also dynamically add data from a collection of reports for urls to a d3.js  multi-line chart. This would give a visual look at the progress on a webpage.</br>
+
+
+
 ## Table of Contents
 - [Description](#Description)
 - [Links](#Links)
