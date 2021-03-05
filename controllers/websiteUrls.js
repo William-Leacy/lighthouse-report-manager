@@ -4,6 +4,7 @@ const ROUTER = express.Router({mergeParams: true});
 const Projects = require('../models/projects.js')
 const Website = require('../models/websites.js')
 const WebsitesUrls = require('../models/websitesUrls.js')
+const Reports = require('../models/reports.js')
 const WebsitesReports = require('./reports');
 ROUTER.use(isAuthenticated);
 ROUTER.use('/:websiteUrlId/report', WebsitesReports)
@@ -30,13 +31,15 @@ ROUTER.get('/:id', (req, res) => {
   Projects.findById(req.params.projectId).then((foundProject) => {
     Website.findById(req.params.websiteId).then((foundwebsite) => {
       WebsitesUrls.findById(req.params.id, (err, foundWebsiteUrl) => {
+        Reports.find({}, (err, foundReports) => {
         console.log(req.params.id);
         console.log(foundWebsiteUrl);
             res.render('urls/show.ejs', {
               websiteUrl: foundWebsiteUrl,
               website: foundwebsite,
-              project: foundProject
-          // websiteIndex: IndexForWebsite
+              project: foundProject,
+              report: foundReports
+            })
         })
       })
       })
@@ -54,7 +57,7 @@ ROUTER.post('/', (req, res) => {
     WebsitesUrls.create(req.body).then(website => {
     project.list_of_urls.push(website)
     project.save()
-    res.send(website)
+    res.redirect(`/projects/${req.params.projectId}/websites/${req.params.websiteId}`)
   })
   })
 

@@ -26,48 +26,6 @@ ROUTER.get('/new', (req, res) => {
 
 // GET show a website
 ROUTER.get('/:id', (req, res) => {
-  // Projects.findById(req.params.projectId, (err, foundProject) => {
-  //   console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
-  //   console.log(`project id : ${req.params.projectId}`);
-  //   console.log(`website id : ${req.params.id}`);
-  //   console.log(foundProject);
-  //   console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
-  //   let IndexForWebsite = 0;
-  //   console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
-  //   console.log(`project id : ${req.params.projectId}`);
-  //   console.log(`website id : ${req.params.id}`);
-  //   for (const id in foundProject.websites) {
-  //     console.log(foundProject.websites[id].id);
-  //     if (foundProject.websites[id].id == req.params.id) {
-  //       IndexForWebsite = id;
-  //       console.log(id);
-  //       console.log("found");
-  //     } else {}
-  //   }
-    // Projects.findById(req.params.projectId, (err, foundProject) => {
-    // console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
-    // console.log(`project id : ${req.params.projectId}`);
-    // console.log(`website id : ${req.params.id}`);
-    // console.log(foundProject);
-    // console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
-    // let IndexForWebsite = 0;
-    // console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
-    // console.log(`project id : ${req.params.projectId}`);
-    // console.log(`website id : ${req.params.id}`);
-    // for (const id in foundProject.websites) {
-    //   console.log(foundProject.websites[id].id);
-    //   if (foundProject.websites[id].id == req.params.id) {
-    //     IndexForWebsite = id;
-    //     console.log(id);
-    //     console.log("found");
-    //   } else {}
-    // }
-    // res.render('websites/show.ejs', {
-    //   projects: foundProject,
-    //   websiteIndex: IndexForWebsite
-    // })
-  // })
-
   Projects.findById(req.params.projectId).then((project) => {
     Website.findById(req.params.id, (err, foundWebsite) => {
       WebsitesUrl.find({},(err, foundWebsitesUrl) => {
@@ -75,7 +33,6 @@ ROUTER.get('/:id', (req, res) => {
         websites: foundWebsite,
         projects: project,
         websitesUrl: foundWebsitesUrl
-        // websiteIndex: IndexForWebsite
       })
     })
     })
@@ -91,7 +48,7 @@ ROUTER.post('/', (req, res) => {
   Website.create(req.body).then(website => {
     project.websites.push(website)
     project.save()
-    res.send(website)
+    res.redirect(`/projects/${req.params.projectId}`)
   })
   })
 
