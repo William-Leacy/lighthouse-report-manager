@@ -1,11 +1,11 @@
 <% if (method === 'POST') { %>
-  <form action="/projects/<%=projects.id %>/websites/" method="POST">
-    Name: <input type="text" name="website_name" /><br/>
+  <form class="form-container" action="/projects/<%=projects.id %>/websites/" method="POST">
+    Website Name: <input type="text" name="website_name" /><br/>
     <input type="submit" name="" value="Create Website"/>
   </form>
 <% } else { %>
-  <form action="/projects/<%=projects.id %>/websites/<%=projects.websites[websiteIndex].id%>?_method=PUT" method="POST">
-    Name: <input type="text" name="name" value="<%=projects.websites[websiteIndex].website_name%>"/><br/>
+  <form class="form-container" action="/projects/<%=projects.id %>/websites/<%=projects.websites[websiteIndex].id%>?_method=PUT" method="POST">
+    Website Name: <input type="text" name="name" value="<%=projects.websites[websiteIndex].website_name%>"/><br/>
       <br/>
       <input type="submit" name="" value="Submit Changes"/>
   </form>

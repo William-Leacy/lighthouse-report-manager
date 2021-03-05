@@ -38,6 +38,8 @@ npm packages
   - "express-session": "^1.17.1",
   - "method-override": "^3.0.0",
   - "mongoose": "^5.11.18"
+  - "chrome-launcher": "^0.13.4",
+  - "lighthouse": "^7.2.0",
 
 ## Features 
 
@@ -54,15 +56,15 @@ npm packages
 The project trys to follow the coding style guide provied by [AirBnb](https://github.com/airbnb/javascript).
 
 ## Design pattern and System design approach
-MVC is the design pattern for the project. A four-layer nested router was implemented for navigation throughout the project model to get to the reports.</br>
-The mongo models are using a mongoose reference Schema.
+MVC is the design pattern for the project. The mongo models are using a mongoose reference Schema.</br>
+A four-layer nested router was implemented for navigation throughout the project model to get to the reports.</br>
 
-explain how lighthouse works
-bootstrap
+When generating a report the lighthouse npm package used chrome in a headless mode to use its lighthouse api.</br>
+This report is then saved a a string variable and saved to the mongo database
+
+bootstrap CSS framework was used to style the application </br>
 
 ## References
-
-
 Side bar inspiration:</br>
 Author: w3schools</br>
 Date: March 4, 2021</br>
@@ -82,7 +84,6 @@ publisher: https://undraw.co/illustrations</br>
 ## Tests
 
 ## Design Documentation 
-
 
 ### User Stories
 - "As a project user, I want to create a project with many websites to report on"

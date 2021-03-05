@@ -97,10 +97,10 @@ ROUTER.post('/', (req, res) => {
 
     await chrome.kill();
 
-    WebsitesUrls.findById(req.params.websiteUrlId).then((project) => {
-      Reports.create(req.body).then(website => {
-        project.reports.push(website)
-        project.save()
+    WebsitesUrls.findById(req.params.websiteUrlId).then((websiteUrl) => {
+      Reports.create(req.body).then(report => {
+        websiteUrl.reports.push(report)
+        websiteUrl.save()
         res.redirect(`/projects/${req.params.projectId}/websites/${req.params.websiteId}/urls/${req.params.websiteUrlId}`)
       })
     })

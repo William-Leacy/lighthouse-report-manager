@@ -1,12 +1,12 @@
 <% if (method === 'POST') { %>
-  <form action="/projects" method="POST">
-    Name: <input type="text" name="name" /><br/>
+  <form class="form-container"action="/projects" method="POST">
+    Proejct Name: <input type="text" name="name" /><br/>
     <input type="submit" name="" value="Create Project"/>
   </form>
 <% } else { %>
-  <form action="/projects/<%=projects.id%>?_method=PUT" method="POST">
+  <form class="form-container" action="/projects/<%=projects.id%>?_method=PUT" method="POST">
     <!--  NOTE: the form is pre-populated with values for the server-->
-    Name: <input type="text" name="name" value="<%=projects.name%>"/><br/>
+    Project Name: <input type="text" name="name" value="<%=projects.name%>"/><br/>
       <br/>
       <input type="submit" name="" value="Submit Changes"/>
   </form>

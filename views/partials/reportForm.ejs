@@ -1,14 +1,9 @@
 <% if (method === 'POST') { %>
-  <form action="/projects/<%=projects.id %>/websites/<%=websites._id %>/urls/<%= url._id%>/report/" method="POST">
-    Name: <input type="text" name="report_name" /><br/>
-    Enter website url: <input type="text" name="report_url" /><br/>
+  <form class="form-container" action="/projects/<%=projects.id %>/websites/<%=websites._id %>/urls/<%= url._id%>/report/" method="POST">
+    Report Name: <input type="text" name="report_name" /><br/>
+    Website URL: <input type="text" name="report_url" /><br/>
     <input type="submit" name="" value="Generate report"/>
   </form>
 <% } else { %>
-  <form action="/projects/<%=projects.id %>/websites/<%=projects.websites[websiteIndex].id%>?_method=PUT" method="POST">
-    Name: <input type="text" name="name" value="<%=projects.websites[websiteIndex].website_name%>"/><br/>
-      <br/>
-      <input type="submit" name="" value="Submit Changes"/>
-  </form>
 <% } %>
 

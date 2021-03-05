@@ -1,28 +1,33 @@
 
+
 body {
   background-color: #F4F5F6;
   display: flex;
   flex-direction: row;
 }
 
-.sing-in-container{
-display: flex;
-flex-direction: row;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
 }
-.sing-in-left-side {
-background-color: #ffffff;
-width: 35%;
-display: flex;
-flex-direction: column;
-
-align-items: center;
-}     
-
-.sing-in-right-side {
-background-color: aqua;
-width: 40%;
+.main-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 2%;
 }
-/* w3schools refence needed */
+
+/* Sidenav css was inspired from w3schools */
+/*
+ * Author: w3schools,
+ * Date: 04/03/2021
+ * Title of program: sidebar
+ * Type: (source code)
+ * publisher: w3schools,
+ *
+ * Single line Referecne: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav_fixed
+ */
 .sidenav {
   height: 100vh;
   width: 160px;
@@ -47,44 +52,57 @@ width: 40%;
 }
 
 .main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
+  margin-left: 160px;
+  font-size: 28px;
   padding: 0px 10px;
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
-.main-content-container{
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  padding: 2%;
-}
 
 /* ================ */
-/*   INDEX Project Page     */
+/*   INDEX Project Page */
 /* ================ */
 .project-name-list-item-index-show {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .update-project-options-container-index-show {
-flex-direction: row;
-display: flex;
-justify-content: space-evenly;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 
 /* ================ */
 /*   Sing up Page     */
 /* ================ */
-.sing-in-container{
+.sing-in-container {
+  display: flex;
+  flex-direction: row;
   margin: 3%;
 }
+
+.sing-in-left-side {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sing-in-right-side {
+  background-color: aqua;
+}
+
 .sign-in-form-container {
   display: flex;
   flex-direction: column;
@@ -96,31 +114,36 @@ justify-content: space-evenly;
   flex-direction: row;
   justify-content: space-between;
 }
-/* buttons */
 
 .sign-in-button {
-	background-color:#fe5454;
-	border-radius:10px;
-	color:#ffffff;
-	font-family:Arial;
-	padding:20px 60px;
+  background-color: #fe5454;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: Arial;
+  padding: 20px 60px;
 }
 
 .sign-up-button {
-	background-color:#ffffff;
-	border-radius:10px;
-	border:2px solid #fe5454;
-	color:#fe5454;
-	font-family:Arial;
-	font-weight:bold;
-	padding:20px 60px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 2px solid #fe5454;
+  color: #fe5454;
+  font-family: Arial;
+  font-weight: bold;
+  padding: 20px 60px;
 }
 
-.logout-form{
+.landing-image{
+  width: 100%;
+}
+
+/* ================ */
+/*   SIDE NAV BAR    */
+/* ================ */
+.logout-form {
   display: flex;
-
-
 }
+
 .logout-button {
   color: #f1f1f1;
   background-color: #111;
@@ -131,7 +154,175 @@ justify-content: space-evenly;
   padding-left: 10%;
 }
 
-
+/* ========================== */
+/*   OVERRIDE LIGHTOUSE CSS   */
+/* ===========================*/
 .lh-sticky-header--visible {
   display: none !important;
+}
+
+@media (min-width: 600px) {
+
+body {
+  background-color: #F4F5F6;
+  display: flex;
+  flex-direction: row;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+.main-content-container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 2%;
+}
+
+/* Sidenav css was inspired from w3schools */
+/*
+ * Author: w3schools,
+ * Date: 04/03/2021
+ * Title of program: sidebar
+ * Type: (source code)
+ * publisher: w3schools,
+ *
+ * Single line Referecne: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav_fixed
+ */
+.sidenav {
+  height: 100vh;
+  width: 160px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: large;
+  color: #ffffff;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px;
+  font-size: 28px;
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+
+/* ================ */
+/*   INDEX Project Page */
+/* ================ */
+.project-name-list-item-index-show {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.update-project-options-container-index-show {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+/* ================ */
+/*   Sing up Page     */
+/* ================ */
+.sing-in-container {
+  display: flex;
+  flex-direction: row;
+  margin: 3%;
+  width: 100%;
+}
+
+.sing-in-left-side {
+  background-color: #ffffff;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sing-in-right-side {
+  background-color: aqua;
+
+}
+
+.sign-in-form-container {
+  display: flex;
+  flex-direction: column;
+  margin: 17%;
+  width: 75%;
+}
+
+.user-login-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sign-in-button {
+  background-color: #fe5454;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: Arial;
+  width: 47%;
+  text-align: center;
+}
+
+.sign-up-button {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 2px solid #fe5454;
+  color: #fe5454;
+  font-family: Arial;
+  font-weight: bold;
+  width: 47%;
+  text-align: center;
+}
+
+/* ================ */
+/*   SIDE NAV BAR    */
+/* ================ */
+.logout-form {
+  display: flex;
+}
+
+.logout-button {
+  color: #f1f1f1;
+  background-color: #111;
+  border: none;
+  font-size: large;
+  text-align: center;
+  text-align: left;
+  padding-left: 10%;
+}
+
+/* ========================== */
+/*   OVERRIDE LIGHTOUSE CSS   */
+/* ===========================*/
+.lh-sticky-header--visible {
+  display: none !important;
+}
 }

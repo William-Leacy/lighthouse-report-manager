@@ -11,110 +11,124 @@ ROUTER.use('/:projectId/websites', Websites)
 //___________________
 // Project Routes
 //___________________
+
 // GET seed project data
 ROUTER.get('/seed', (req, res) => {
   Projects.create([{
-      name: 'Group A Project',
-      websites: [{
+    name: 'Group A Project',
+    websites: [{
         website_name: "Google.com",
         list_of_urls: [{
-          url_name: "www.google.com/about",
-          reports: [{
-            report_name: "report 1"
+            url_name: "www.google.com/about",
+            reports: [{
+                report_name: "report 1"
+              },
+              {
+                report_name: "report 2"
+              }
+            ]
           },
           {
-            report_name: "report 2"
-          }]
-        },
-        {
-          url_name: "www.google.com/log",
-          reports: [{
-            report_name: "report 1"
-          },
-          {
-            report_name: "report 2"
-          }]
-        }]
+            url_name: "www.google.com/log",
+            reports: [{
+                report_name: "report 1"
+              },
+              {
+                report_name: "report 2"
+              }
+            ]
+          }
+        ]
       },
       {
         website_name: "Apple.com",
         list_of_urls: [{
-          url_name: "www.Apple.com/about",
-          reports: [{
-            report_name: "report 1"
+            url_name: "www.Apple.com/about",
+            reports: [{
+                report_name: "report 1"
+              },
+              {
+                report_name: "report 2"
+              }
+            ]
           },
           {
-            report_name: "report 2"
-          }]
-        },
-        {
-          url_name: "www.Apple.com/log",
-          reports: [{
-            report_name: "report 1"
-          },
-          {
-            report_name: "report 2"
-          }]
-        }]
-      }]
-    },{
-      name: 'Group B Project',
-      websites: [{
+            url_name: "www.Apple.com/log",
+            reports: [{
+                report_name: "report 1"
+              },
+              {
+                report_name: "report 2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }, {
+    name: 'Group B Project',
+    websites: [{
         website_name: "ibm.com",
         list_of_urls: [{
-          url_name: "www.ibm.com/about",
-          reports: [{
-            report_name: "report 1"
+            url_name: "www.ibm.com/about",
+            reports: [{
+                report_name: "report 1"
+              },
+              {
+                report_name: "report 2"
+              }
+            ]
           },
           {
-            report_name: "report 2"
-          }]
-        },
-        {
-          url_name: "www.ibm.com/log",
-          reports: [{
-            report_name: "report 1"
-          },
-          {
-            report_name: "report 2"
-          }]
-        }]
+            url_name: "www.ibm.com/log",
+            reports: [{
+                report_name: "report 1"
+              },
+              {
+                report_name: "report 2"
+              }
+            ]
+          }
+        ]
       },
       {
         website_name: "facebook.com",
         list_of_urls: [{
-          url_name: "www.facebook.com/about",
-          reports: [{
-            report_name: "report 1"
+            url_name: "www.facebook.com/about",
+            reports: [{
+                report_name: "report 1"
+              },
+              {
+                report_name: "report 2"
+              }
+            ]
           },
           {
-            report_name: "report 2"
-          }]
-        },
-        {
-          url_name: "www.facebook.com/log",
-          reports: [{
-            report_name: "report 1"
-          },
-          {
-            report_name: "report 2"
-          }]
-        }]
-      }]
-    }
-  ], (err, data) => {
+            url_name: "www.facebook.com/log",
+            reports: [{
+                report_name: "report 1"
+              },
+              {
+                report_name: "report 2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }], (err, data) => {
     res.redirect('/projects');
   })
 });
 
+/*
+ * All of the routes below are inspired from the code used during week 5 excerices
+ */
+
+
 //GET Projects Index
 ROUTER.get('/', (req, res) => {
-
   Projects.find({}, (error, allProjects) => {
-    console.log(allProjects);
-    console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
-    console.log("Getting Projects");
-    console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
     res.render('projects/index.ejs', {
       projects: allProjects,
     })
@@ -133,43 +147,40 @@ ROUTER.post('/', (req, res) => {
 })
 // GET show a project
 ROUTER.get('/:id', (req, res) => {
-  console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
-  console.log("Showing Projects");
-  console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
   Projects.findById(req.params.id, (err, foundProject) => {
-    Website.find({},(err, foundWebsites) => {
-      console.log(foundProject);
-      console.log(foundProject.websites);
-      console.log(foundWebsites);
+    Website.find({}, (err, foundWebsites) => {
       res.render('projects/show.ejs', {
         project: foundProject,
         websites: foundWebsites
       })
-      })
+    })
   })
 })
 
 // GET edit a project
-ROUTER.get('/:id/edit', (req, res)=>{
-  Projects.findById(req.params.id, (err, foundProject)=>{ 
-      res.render('projects/edit.ejs', { 
-        projects: foundProject, 
-        method: 'PUT'
-      })
+ROUTER.get('/:id/edit', (req, res) => {
+  Projects.findById(req.params.id, (err, foundProject) => {
+    res.render('projects/edit.ejs', {
+      projects: foundProject,
+      method: 'PUT'
+    })
   })
 })
 
-// update
-ROUTER.put('/:id', (req, res)=>{
-
-  Projects.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel)=> {
+// PUT update a project
+ROUTER.put('/:id', (req, res) => {
+  Projects.findByIdAndUpdate(req.params.id, req.body, {
+    new: true
+  }, (err, updatedModel) => {
     res.redirect('/projects');
   })
 })
 
 //Delete a project
 ROUTER.delete('/:id', (req, res) => {
-  Projects.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (err, data)=>{
+  Projects.findByIdAndRemove(req.params.id, {
+    useFindAndModify: false
+  }, (err, data) => {
     res.redirect('/projects')
   })
 });
