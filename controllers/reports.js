@@ -6,6 +6,14 @@ const Website = require('../models/websites.js')
 const WebsitesUrls = require('../models/websitesUrls.js')
 const Reports = require('../models/reports.js')
 
+
+// Light House config
+const fs = require('fs');
+const lighthouse = require('lighthouse');
+const chromeLauncher = require('chrome-launcher');
+
+
+
 ROUTER.use(isAuthenticated);
 
 //___________________
@@ -55,6 +63,29 @@ ROUTER.get('/:id', (req, res) => {
 // POST create a website
 ROUTER.post('/', (req, res) => {
 
+
+  console.log("test");
+    (async () => {
+      console.log("tesdsfgt");
+      const chrome = await chromeLauncher.launch({chromeFlags: ['--headless']});
+      const options = {logLevel: 'info', output: 'html', port: chrome.port};
+      const runnerResult = await lighthouse( req.body.report_url, options);
+
+      // `.report` is the HTML report as a string
+      const reportHtml = runnerResult.report;
+      fs.writeFileSync('lhreport.html', reportHtml);
+    
+      // `.lhr` is the Lighthouse Result as a JS object
+      console.log('Report is done for', runnerResult.lhr.finalUrl);
+      console.log('Performance score was', runnerResult.lhr.categories.performance.score * 100);
+    
+      await chrome.kill();
+   
+  
+
+  console.log(req.body);
+  // console.log(reportHtml);
+  req.body.lighthouse_html_string = reportHtml;
   console.log(req.body);
 
   WebsitesUrls.findById(req.params.websiteUrlId).then((project) => {
@@ -67,6 +98,7 @@ ROUTER.post('/', (req, res) => {
   })
   })
 
+})();
 })
 
 

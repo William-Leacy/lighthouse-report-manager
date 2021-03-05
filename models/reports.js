@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const reportsSchema = new mongoose.Schema({
  
   report_name: {type: String},
+  report_url: {type: String},
   created_date: {type: Date, default: Date.now },
   lighthouse_json_data: {},
   lighthouse_html_string: {type: String},
