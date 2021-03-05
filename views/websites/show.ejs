@@ -19,8 +19,11 @@
       <tr>
         <th scope="row">1</th>
         <td>            <a href="/projects/<%=projects.id %>/websites/<%=websites._id%>/urls/<%=websites.list_of_urls[i]._id%>">
-          <%=websites.list_of_urls[i].url_name %>
-          <%=websites.list_of_urls[i]._id %>
+          <% for(let j= 0; j < websitesUrl.length; j++) { %>
+            <% if ( websitesUrl[j].id  ==  websites.list_of_urls[i]._id ) { %>
+              <%=websitesUrl[j].url_name %>
+              <% } %>
+         <% } %>
         </a>
         </td>
         <td></td>

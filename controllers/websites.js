@@ -7,6 +7,7 @@ const ROUTER = express.Router({
 });
 const Projects = require('../models/projects.js')
 const Website = require('../models/websites.js')
+const WebsitesUrl = require('../models/websitesUrls.js')
 const WebsitesUrls = require('./websiteUrls');
 ROUTER.use(isAuthenticated);
 ROUTER.use('/:websiteId/urls', WebsitesUrls)
@@ -69,17 +70,16 @@ ROUTER.get('/:id', (req, res) => {
 
   Projects.findById(req.params.projectId).then((project) => {
     Website.findById(req.params.id, (err, foundWebsite) => {
-      console.log(req.params.id);
-      console.log(foundWebsite);
+      WebsitesUrl.find({},(err, foundWebsitesUrl) => {
           res.render('websites/show.ejs', {
         websites: foundWebsite,
-        projects: project
+        projects: project,
+        websitesUrl: foundWebsitesUrl
         // websiteIndex: IndexForWebsite
       })
     })
     })
-
-
+})
 })
 
 // POST create a website
