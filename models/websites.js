@@ -6,7 +6,9 @@ const websitesSchema = new mongoose.Schema({
   list_of_urls: [{ type: Schema.Types.ObjectId, ref: 'WebsitesUrls' }]
 });
 
+
 const Website = mongoose.model('Website', websitesSchema);
+
 
 module.exports = Website;
 

@@ -4,6 +4,7 @@ const {
 } = require('../services/middleware.js');
 const ROUTER = express.Router();
 const Projects = require('../models/projects.js')
+const Website = require('../models/websites.js')
 const Websites = require('./websites');
 ROUTER.use(isAuthenticated);
 ROUTER.use('/:projectId/websites', Websites)
@@ -120,8 +121,6 @@ ROUTER.get('/', (req, res) => {
   })
 })
 
-
-
 // GET new project form
 ROUTER.get('/new', (req, res) => {
   res.render('projects/new.ejs');
@@ -138,11 +137,15 @@ ROUTER.get('/:id', (req, res) => {
   console.log("Showing Projects");
   console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
   Projects.findById(req.params.id, (err, foundProject) => {
-    console.log(foundProject);
-    console.log(foundProject.websites);
-    res.render('projects/show.ejs', {
-      project: foundProject,
-    })
+    Website.find({},(err, foundWebsites) => {
+      console.log(foundProject);
+      console.log(foundProject.websites);
+      console.log(foundWebsites);
+      res.render('projects/show.ejs', {
+        project: foundProject,
+        websites: foundWebsites
+      })
+      })
   })
 })
 

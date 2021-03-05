@@ -67,8 +67,8 @@ ROUTER.post('/', (req, res) => {
   console.log("test");
     (async () => {
       console.log("tesdsfgt");
-      const chrome = await chromeLauncher.launch({chromeFlags: ['--headless']});
-      const options = {logLevel: 'info', output: 'html', port: chrome.port};
+      // const chrome = await chromeLauncher.launch({chromeFlags: ['--headless']});
+      // const options = {logLevel: 'info', output: 'html', port: chrome.port};
       const runnerResult = await lighthouse( req.body.report_url, options);
 
       // `.report` is the HTML report as a string
@@ -79,7 +79,7 @@ ROUTER.post('/', (req, res) => {
       console.log('Report is done for', runnerResult.lhr.finalUrl);
       console.log('Performance score was', runnerResult.lhr.categories.performance.score * 100);
     
-      await chrome.kill();
+      // await chrome.kill();
    
   
 

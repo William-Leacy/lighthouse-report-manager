@@ -17,12 +17,14 @@
       </thead>
       <tbody>
         <% for(let i = 0; i < project.websites.length; i++){ %>
-       
         <tr>
           <th scope="row">1</th>
           <td><a href="/projects/<%=project._id %>/websites/<%=project.websites[i]._id %>">
-            <%=project.websites[i].website_name %>
-            <%=project.websites[i]._id %>
+            <% for(let j= 0; j < websites.length; j++) { %>
+              <% if ( websites[j].id  ==  project.websites[i]._id ) { %>
+                <%=websites[j].website_name %>
+                <% } %>
+           <% } %>
         </a>
           </td>
           <td></td>
@@ -40,9 +42,7 @@
             </button>
         </form>
           </div></td>
-        </tr>
-  
-   
+        </tr> 
         <% } %>
       </tbody>
     </table>
