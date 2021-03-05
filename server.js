@@ -79,9 +79,9 @@ app.use('/report', websiteReportsController);
 // Routes
 //___________________
 //localhost:3000
-// app.get('/' , (req, res) => {
-//   res.send('Hello World!');
-// });
+app.get('/' , (req, res) => {
+  res.redirect('/projects/')
+});
 
 //___________________
 //Listener

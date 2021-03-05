@@ -140,7 +140,7 @@ ROUTER.delete('/:id', (req, res) => {
   console.log("Deleting website");
   console.log(`~~~~~~~~~~~~~~~~~~~~~~`);
 
-  Projects.findByIdAndRemove(req.params.id
+  Website.findByIdAndRemove(req.params.id
   , {
     useFindAndModify: false
   }, (err, data) => {

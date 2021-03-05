@@ -6,7 +6,7 @@ Utilizes Lighthouse npm module to generate the report.
 
 ## Links
 You can access the application here:
-https://damp-temple-76255.herokuapp.com/
+https://damp-temple-76255.herokuapp.com/projects
 
 ## Table of Contents
 - [Description](#Description)
@@ -21,11 +21,23 @@ https://damp-temple-76255.herokuapp.com/
 - [Design Documentation](#Design-Documentation)
     - [User Stories](#User-Stories)
     - [User Case](#User-Case)
-
 - [Authors](#Author)
 - [License](#License)
 
 ## Install
+You can fork this repo and run from node. You will need to setup the .env variables.</br>
+
+Dependencies</br>
+
+npm packages
+  - "bcryptjs": "^2.4.3",
+  - "bootstrap-icons": "^1.4.0",
+  - "dotenv": "^8.2.0",
+  - "ejs": "^3.1.6",
+  - "express": "^4.17.1",
+  - "express-session": "^1.17.1",
+  - "method-override": "^3.0.0",
+  - "mongoose": "^5.11.18"
 
 ## Features 
 
@@ -34,14 +46,38 @@ https://damp-temple-76255.herokuapp.com/
 - node.js
 - express.js
 - JavaScript
+- bootstrap
+- Heroku
+- mongo Atlas
 
 ## Code organization
 The project trys to follow the coding style guide provied by [AirBnb](https://github.com/airbnb/javascript).
 
-## Design pattern used
-MVC
+## Design pattern and System design approach
+MVC is the design pattern for the project. A four-layer nested router was implemented for navigation throughout the project model to get to the reports.</br>
+The mongo models are using a mongoose reference Schema.
+
+explain how lighthouse works
+bootstrap
+
 ## References
 
+
+Side bar inspiration:</br>
+Author: w3schools</br>
+Date: March 4, 2021</br>
+Type: source code</br>
+publisher: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav_fixed</br>
+
+
+Lightouse module: </br>
+https://www.npmjs.com/package/lighthouse#using-the-node-module</br>
+
+Langding page image:</br>
+Author: unDraw</br>
+Date: March 4, 2021</br>
+Type: (raw)</br>
+publisher: https://undraw.co/illustrations</br>
 
 ## Tests
 
@@ -61,22 +97,11 @@ MVC
 
 - "As a project user, I want to add members to a project"
 
-### User Case
-
-----------------------------------------------------------------------
-
-- Title:
-- Primary Actor: 
-- Success Scenario:
-    - 
-- Extensions: 
-    - 
-- Precondition: 
-    - 
-----------------------------------------------------------------------
-
 ## Authors
 William Leacy (Current Author).
 ## License
 
 Apache License 2.0
+
+
+
