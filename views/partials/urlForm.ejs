@@ -1,7 +1,7 @@
 <% if (method === 'POST') { %>
-  <form action="/projects/<%=projects.id %>/websites/" method="POST">
-    Name: <input type="text" name="website_name" /><br/>
-    <input type="submit" name="" value="Create Website"/>
+  <form action="/projects/<%=projects.id %>/websites/<%=websites._id %>/urls/" method="POST">
+    Name: <input type="text" name="url_name" /><br/>
+    <input type="submit" name="" value="Add url"/>
   </form>
 <% } else { %>
   <form action="/projects/<%=projects.id %>/websites/<%=projects.websites[websiteIndex].id%>?_method=PUT" method="POST">
