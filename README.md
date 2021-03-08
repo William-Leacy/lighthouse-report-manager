@@ -92,6 +92,15 @@ Date: March 4, 2021</br>
 Type: (raw)</br>
 publisher: https://undraw.co/illustrations</br>
 
+
+Nested controller code general design was inspired from this repo.</br>
+Author: John A. Jacobs</br>
+Date: March 4, 2021</br>
+Type: (raw)</br>
+Source: https://github.com/GopherEverett/RoastMe/blob/master/controllers/roastController.js/br>
+
+
+
 ## Tests
 
 ## Design Documentation 
